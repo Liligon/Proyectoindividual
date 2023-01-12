@@ -48,3 +48,13 @@ body {
    color: navy;
    font-size: 20px;
 }
+
+.boton{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 10px;
+}
+
+.card-body{
+   
+}
