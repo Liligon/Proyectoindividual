@@ -1,22 +1,43 @@
 h1 {
    text-align: center;
    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-   color: white;
-   background-color: darkviolet;
-   margin: 0%;
+   color: #005B54;
+}
+
+
+h3{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   color: #005B54;
+   margin: 20px;
+}
+
+.preguntas{
+   border-style: outset;
+   border-width: 2px;
+   border-color: #ffafff;
+   border-radius: 5px;
+   margin: 15px;
+   padding: 10px;
+   letter-spacing: 5px;
+}
+
+.form-control{
+   width: 500px;
 }
 
 .navbar {
-   background-color: #CCCCCC !important;
+   background-color: transparent !important;
    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
    color: white;
    font-size: 16px;
+   border:rgba(0, 0, 0, 0.24) ;
 }
 
 
 body {
-   background-color: #CCFFFF
+   background-image: linear-gradient(to bottom, #ffafff, #cab8ff, #8bc0ff, #47c4ff, #00c4e5, #32c9d3, #59ccbf, #7bceae, #a4d9b1, #c8e3ba, #e6eec9, #fffade);
 }
+
 
 .contenedor{
    display: grid;
@@ -46,6 +67,14 @@ body {
 
 
 /*botones rrss*/
+
+.rrss{
+   width: 30px; 
+   height: 30px; 
+   margin-bottom: 5px;
+   margin-left: 5px;
+}
+
 a {
    cursor: pointer;
    text-decoration: none;
@@ -84,7 +113,7 @@ a {
 
 .contenedor-redes-sociales a:hover span.titulo-hover {
    opacity: 1;
-   color: #fff;
+   color: black;
 }
 
 .contenedor-redes-sociales a span.titulo-hover {
