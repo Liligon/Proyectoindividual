@@ -1,77 +1,68 @@
 let listaTareas = []
 
-    const objetoTarea = {
-
-        id: '',
-        tarea: '',
-        descripción: ''
-
-    }
 
 let editando = false;
 
-const formulario = document.querySelector('#formulario');
-const tareaImput = document.querySelector('#Tarea');
-const tareaDescripcion = document.querySelector('#Descripción');
-const btnAgregar = document.querySelector('#btnAgregar');
 
-formulario.addEventListener('submit', validarFormulario);
-
-function validarFormulario(e) {
-    e.preventDefault();
-
-    if (tareaImput.value === '' || tareaDescripcion.value === '') {
+$(`#btnAgregar`).on('click', function () {
+     if ($(`#Tarea`).val() === '' || $(`#Descripcion`).val() === '') {
         alert('Campos Obligatorios');
-        return
-    }
-
-    if (editando) {
-        //editarTarea();
-        editando = false;
     }
     else {
-        objetoTarea.id = Date.now();
-        objetoTarea.tarea = tareaImput.value;
-        objetoTarea.descripción = tareaDescripcion.value;
+        let objetoTarea = {
 
-        agregarTarea();
+            tarea: '',
+            descripcion: '',
+
+        }
+        objetoTarea.tarea = $(`#Tarea`).val()
+        objetoTarea.descripcion = $(`#Descripcion`).val()
+
+        listaTareas.push(objetoTarea);
+
+        console.log(listaTareas);
+
+        mostrarTarea();
     }
-}
+} 
+);
 
-function agregarTarea() {
-    listaTareas.push({ ...objetoTarea })
-
-    mostrarTarea();
-}
 
 function mostrarTarea() {
-    const divTarea = document.querySelector ('.div-tareas')
-    
-    listaTareas.forEach(tarea => { 
-        const { id, tarea, descripción } = tarea;
-        const parrafo = document.createElement('p');
-        parrafo.textContent = '${id} - ${tarea} - ${descripción} -';
-        parrafo.dataset.id = id;
 
-        const editarBoton = document.createElement('button');
+    let divTarea = document.querySelector('.div-tareas');
+    $(`.ideas`).remove();
+    
+
+    var i= 0;
+
+    listaTareas.forEach(Element => {
+
+
+        let parrafo = document.createElement('p');
+        parrafo.textContent = "Titulo: " + Element.tarea + "\nDescripcion: "+ Element.descripcion ;
+        divTarea.appendChild(parrafo);
+        parrafo.setAttribute(`id`,i)
+        parrafo.className= "ideas"
+
+        let editarBoton = document.createElement('button');
         //editarBoton.onclick = () => cargarTarea (tarea);
         editarBoton.textContent = 'Editar';
         editarBoton.classList.add('btn', 'btn-editar');
         parrafo.append(editarBoton);
 
-        const eliminarBoton = document.createElement('button');
+        let eliminarBoton = document.createElement('button');
         //eliminarBoton.onclick = () => eliminarTarea (id);
         eliminarBoton.textContent = 'Eliminar';
         eliminarBoton.classList.add('btn', 'btn-eliminar');
         parrafo.append(eliminarBoton);
 
-        const hr = document.createElement('hr');
+       i++
 
-        divTarea.appendChild(parrafo);
-        divTarea.appendChild(hr);
     })
 
 
 }
+
 
 
